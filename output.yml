@@ -1,0 +1,198 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: 2018-11-16T01:05:53Z
+    generateName: killer-
+    labels:
+      controller-uid: c4250598-e93b-11e8-8456-0e7c5c8ddfc6
+      job-name: killer
+    name: killer-b4cvz
+    namespace: default
+    ownerReferences:
+    - apiVersion: batch/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Job
+      name: killer
+      uid: c4250598-e93b-11e8-8456-0e7c5c8ddfc6
+    resourceVersion: "10330985"
+    selfLink: /api/v1/namespaces/default/pods/killer-b4cvz
+    uid: c426bcbb-e93b-11e8-8456-0e7c5c8ddfc6
+  spec:
+    containers:
+    - args:
+      - python
+      - /tmp/killer.py
+      - "9"
+      image: tini-killer
+      imagePullPolicy: IfNotPresent
+      name: killer
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: default-token-9kmnl
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    nodeName: ip-10-0-26-37.ec2.internal
+    nodeSelector:
+      kubernetes.io/hostname: ip-10-0-26-37.ec2.internal
+    restartPolicy: Never
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: default-token-9kmnl
+      secret:
+        defaultMode: 420
+        secretName: default-token-9kmnl
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: 2018-11-16T01:05:53Z
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: 2018-11-16T01:05:53Z
+      message: 'containers with unready status: [killer]'
+      reason: ContainersNotReady
+      status: "False"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: 2018-11-16T01:05:53Z
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: docker://079390f9176f82362a3d8b58266cac4af3da7daa5960f35d84befd28d225dd7c
+      image: tini-killer:latest
+      imageID: docker://sha256:8344b65b8d0e28c03d2cc1f7f90ed7ab0851768d08161520158ceb8571caf9c0
+      lastState: {}
+      name: killer
+      ready: false
+      restartCount: 0
+      state:
+        terminated:
+          containerID: docker://079390f9176f82362a3d8b58266cac4af3da7daa5960f35d84befd28d225dd7c
+          exitCode: 137
+          finishedAt: 2018-11-16T01:05:54Z
+          reason: Error
+          startedAt: 2018-11-16T01:05:54Z
+    hostIP: 10.0.26.37
+    phase: Failed
+    podIP: 192.168.48.31
+    qosClass: BestEffort
+    startTime: 2018-11-16T01:05:53Z
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: 2018-11-16T01:11:38Z
+    generateName: paricide-
+    labels:
+      controller-uid: 91dbe907-e93c-11e8-8456-0e7c5c8ddfc6
+      job-name: paricide
+    name: paricide-xdnk7
+    namespace: default
+    ownerReferences:
+    - apiVersion: batch/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Job
+      name: paricide
+      uid: 91dbe907-e93c-11e8-8456-0e7c5c8ddfc6
+    resourceVersion: "10331490"
+    selfLink: /api/v1/namespaces/default/pods/paricide-xdnk7
+    uid: 91deee26-e93c-11e8-8456-0e7c5c8ddfc6
+  spec:
+    containers:
+    - args:
+      - python
+      - /tmp/paricide.py
+      - "9"
+      image: tini-killer
+      imagePullPolicy: IfNotPresent
+      name: paricide
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: default-token-9kmnl
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    nodeName: ip-10-0-26-37.ec2.internal
+    nodeSelector:
+      kubernetes.io/hostname: ip-10-0-26-37.ec2.internal
+    restartPolicy: Never
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: default-token-9kmnl
+      secret:
+        defaultMode: 420
+        secretName: default-token-9kmnl
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: 2018-11-16T01:11:38Z
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: 2018-11-16T01:11:38Z
+      message: 'containers with unready status: [paricide]'
+      reason: ContainersNotReady
+      status: "False"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: 2018-11-16T01:11:38Z
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: docker://16049602aa28e3057d4807c79e04166129c9a459bcfc197c8921462b74f6df1c
+      image: tini-killer:latest
+      imageID: docker://sha256:182e03ea906a1112396e2e7a82b43a49ed31465d741521e1206dcc7473eeb972
+      lastState: {}
+      name: paricide
+      ready: false
+      restartCount: 0
+      state:
+        terminated:
+          containerID: docker://16049602aa28e3057d4807c79e04166129c9a459bcfc197c8921462b74f6df1c
+          exitCode: 137
+          finishedAt: 2018-11-16T01:11:39Z
+          reason: Error
+          startedAt: 2018-11-16T01:11:39Z
+    hostIP: 10.0.26.37
+    phase: Failed
+    podIP: 192.168.48.33
+    qosClass: BestEffort
+    startTime: 2018-11-16T01:11:38Z
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""

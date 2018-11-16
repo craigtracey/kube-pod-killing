@@ -1,0 +1,19 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: killer
+spec:
+  template:
+    spec:
+      nodeSelector:
+        kubernetes.io/hostname: ip-10-0-26-37.ec2.internal
+      containers:
+      - name: killer
+        image: tini-killer
+        imagePullPolicy: IfNotPresent
+        args: 
+        - python
+        - /tmp/killer.py
+        - "9"
+      restartPolicy: Never
+  backoffLimit: 0

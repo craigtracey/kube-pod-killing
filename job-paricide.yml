@@ -1,0 +1,19 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: paricide
+spec:
+  template:
+    spec:
+      nodeSelector:
+        kubernetes.io/hostname: ip-10-0-26-37.ec2.internal
+      containers:
+      - name: paricide
+        image: tini-killer
+        imagePullPolicy: IfNotPresent
+        args: 
+        - python
+        - /tmp/paricide.py
+        - "9"
+      restartPolicy: Never
+  backoffLimit: 0
